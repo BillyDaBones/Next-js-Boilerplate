@@ -1,11 +1,15 @@
-"$schema" = "https://railway.com/railway.schema.json"
+$schema = "https://railway.com/railway.schema.json"
 
 [build]
 builder = "RAILPACK"
 buildCommand = "npm run build:next"
 
 [deploy]
-startCommand = "npm run start"
+startCommand = "npm run db:migrate && npm run start"
 healthcheckPath = "/"
+healthcheckTimeout = 60
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
+
+[build.environment]
+NODE_VERSION = "22"
