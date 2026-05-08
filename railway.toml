@@ -5,7 +5,7 @@ builder = "RAILPACK"
 buildCommand = "npm run build:next"
 
 [deploy]
-startCommand = "npm run db:migrate && npm run start"
+startCommand = "next start -p ${PORT:-3000}"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
